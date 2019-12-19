@@ -11,11 +11,28 @@ export class DropdownDirective{
     @HostBinding('class.show') isOpen = false;
    
     @HostListener('mouseenter') toggleOpen() {
-        this.isOpen = !this.isOpen;
+        this.isOpen = true;
+
         let part = this.el.nativeElement.querySelector('.dropdown-menu');
-        if(this.isOpen)
+        // if(this.isOpen)
           this.renderer.addClass(part, 'show');
-        else
-          this.renderer.removeClass(part, 'show');
+        // else
+        //   this.renderer.removeClass(part, 'show');
     }
+    @HostListener('mouseleave') toggleClose() {
+      // this.isOpen = !this.isOpen;
+      this.isOpen = false;
+      setTimeout(()=>{
+        if(!this.isOpen){
+          this.isOpen = false;
+          let part = this.el.nativeElement.querySelector('.dropdown-menu');
+          this.renderer.removeClass(part, 'show');
+        }
+      },500)
+      // let part = this.el.nativeElement.querySelector('.dropdown-menu');
+      // // if(this.isOpen)
+      //   this.renderer.removeClass(part, 'show');
+      // // else
+      //   this.renderer.removeClass(part, 'show');
+  }
 }
