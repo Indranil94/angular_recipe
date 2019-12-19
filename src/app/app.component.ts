@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'recipebook';
+  choice:boolean= true;
+  onChoosePage(data:{choice: boolean}){
+    this.choice= data.choice;
+  }
 }
