@@ -10,8 +10,8 @@
           </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#">Recipe</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">ShoppingList</a></li>
+                <li class="nav-item"><a class="nav-link" (click)="onChoosePage(true)" [ngStyle]="{cursor:'pointer'}">Recipe</a></li>
+                <li class="nav-item"><a class="nav-link" (click)="onChoosePage(false)" [ngStyle]="{cursor:'pointer'}">ShoppingList</a></li>
             </ul>
             <ul class="nav navbar-nav my-2 my-lg-0">
                 <li class="dropdown">
