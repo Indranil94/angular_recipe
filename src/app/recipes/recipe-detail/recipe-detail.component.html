@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-12">
-        <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-responsive" [ngStyle]="{maxHeight: '150px'}">
+        <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-responsive" [ngStyle]="{maxHeight: '400px'}">
     </div>
 </div>
 <div class="row">
@@ -15,7 +15,7 @@
                 Manage Recipe
             </button>
             <ul class="dropdown-menu">
-                <li class="dropdown-item"><a href="#">To Shopping List</a></li>
+                <li class="dropdown-item"><a [ngStyle]="{cursor: 'pointer'}" (click)="shopIngredients()">To Shopping List</a></li>
                 <li class="dropdown-item"><a href="#">Edit Recipe</a></li>
                 <li class="dropdown-item"><a href="#">Delete Recipe</a></li>
             </ul>
@@ -25,9 +25,12 @@
 <div class="row">
     <div class="col-xs-12">
         <h3>{{recipe.description}}</h3>
-        <ng-template #noDesc>
-            <h3>Description</h3>
-
-        </ng-template>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">{{ingredient.name}} - {{ingredient.amount}}</li>
+        </ul>
     </div>
 </div>
