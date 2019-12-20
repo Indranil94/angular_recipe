@@ -1,8 +1,9 @@
-<app-header (choosePage)="onChoosePage($event)"></app-header>
+<app-header></app-header>
 
     <div class="col-xs-12 col-md-12 col-lg-12 m-4 p-4">
-      <app-recipes *ngIf="choice; else shopping"></app-recipes>
+      <!-- <app-recipes *ngIf="choice; else shopping"></app-recipes>
       <ng-template #shopping>
         <app-shopping-list></app-shopping-list>
-      </ng-template>
+      </ng-template> -->
+      <router-outlet></router-outlet>
     </div>
