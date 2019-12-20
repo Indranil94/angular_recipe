@@ -8,13 +8,13 @@ import {Component, Output, EventEmitter} from '@angular/core';
 
 export class HeaderComponent {
 
-    @Output() choosePage = new EventEmitter<{choice: boolean}>()
+    // @Output() choosePage = new EventEmitter<{choice: boolean}>()
 
     collapsed: boolean = true;
 
-    onChoosePage(choice: boolean){
-        this.choosePage.emit({
-            choice: choice
-        })
-    }
+    // onChoosePage(choice: boolean){
+    //     this.choosePage.emit({
+    //         choice: choice
+    //     })
+    // }
 }

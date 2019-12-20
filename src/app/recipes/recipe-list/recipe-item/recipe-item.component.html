@@ -1,4 +1,4 @@
-<a class="list-group-item clearfix" [ngStyle]="{cursor:'pointer'}" (click)="onChooseRecipe()">
+<a class="list-group-item clearfix" routerLinkActive="active" [routerLink]="['/recipes',recipeNumber]" [ngStyle]="{cursor:'pointer'}">
     <div class="float-left">
         <h4 class="list-group-item-heading">{{recipeitem.name}}</h4>
         <p class="list-group-item-text">{{recipeitem.description}}</p>

@@ -16,8 +16,8 @@
             </button>
             <ul class="dropdown-menu">
                 <li class="dropdown-item"><a [ngStyle]="{cursor: 'pointer'}" (click)="shopIngredients()">To Shopping List</a></li>
-                <li class="dropdown-item"><a href="#">Edit Recipe</a></li>
-                <li class="dropdown-item"><a href="#">Delete Recipe</a></li>
+                <li class="dropdown-item"><a [ngStyle]="{cursor:'pointer'}" [routerLink]="['/recipes',id,'edit']" >Edit Recipe</a></li>
+                <li class="dropdown-item"><a [ngStyle]="{cursor:'pointer'}">Delete Recipe</a></li>
             </ul>
         </div>
     </div>

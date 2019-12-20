@@ -4,9 +4,9 @@
 <!-- (chooseRecipe)="onRecipeChoice($event)" -->
     </div>
     <div class="col-md-7 p-5">
-        <app-recipe-detail [chosenRecipe]="chosenRecipe" *ngIf="chosenRecipe!=null; else noRecipe"></app-recipe-detail>
+        <router-outlet></router-outlet>
+        <!-- <app-recipe-detail [chosenRecipe]="chosenRecipe" *ngIf="chosenRecipe!=null; else noRecipe"></app-recipe-detail>
         <ng-template #noRecipe>
-            <h3>Please select a recipe</h3>
-        </ng-template>
+        </ng-template> -->
     </div>
 </div>

@@ -4,21 +4,21 @@
         <!-- <div class="navbar-header">
             
         </div> -->
-        <a href="#" class="navbar-brand">Recipe Book</a>
+        <a routerLink="/" class="navbar-brand">Recipe Book</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav mr-auto mt-2 mt-lg-0" >
-                <li class="nav-item"><a class="nav-link" (click)="onChoosePage(true)" [ngStyle]="{cursor:'pointer'}">Recipe</a></li>
-                <li class="nav-item"><a class="nav-link" (click)="onChoosePage(false)" [ngStyle]="{cursor:'pointer'}">ShoppingList</a></li>
+                <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="/recipes" [ngStyle]="{cursor:'pointer'}">Recipe</a></li>
+                <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="/shoppingList" [ngStyle]="{cursor:'pointer'}">ShoppingList</a></li>
             </ul>
             <ul class="nav navbar-nav my-2 my-lg-0">
                 <li class="dropdown" appDropdown>
                     <a class="dropdown-toggle" [ngStyle]="{cursor: 'pointer'}">Manage</a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-item"><a href="#">Save Data</a></li>
-                        <li class="dropdown-item"><a href="#">Fetch Data</a></li>
+                        <li class="dropdown-item"><a [ngStyle]="{cursor:'pointer'}">Save Data</a></li>
+                        <li class="dropdown-item"><a [ngStyle]="{cursor:'pointer'}">Fetch Data</a></li>
                     </ul>
                 </li>
             </ul>
