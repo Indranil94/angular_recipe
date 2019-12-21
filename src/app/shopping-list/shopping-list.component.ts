@@ -28,4 +28,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.ilSubscription.unsubscribe();
   }
 
+  onIngredientSelect(ingredient: Ingredient){
+    this.shoppingListService.getIngredient(ingredient)
+  }
+
 }
