@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { RecipeService } from '../recipes.service';
 import { Recipe } from '../recipes.model';
@@ -17,7 +17,7 @@ export class RecipeEditComponent implements OnInit {
   recipeForm: FormGroup;
   recipe: Recipe;
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private recipeService: RecipeService) { }
 
 
   ngOnInit() {
@@ -26,9 +26,10 @@ export class RecipeEditComponent implements OnInit {
       (params: Params)=>{
         this.id = +params['id']
         this.editMode = params['id']!=null
-        console.log(this.editMode)
+        // console.log(this.editMode)
       }
     )
+
 
     if(this.editMode){
       this.recipe = this.recipeService.getParticularRecipe(this.id)
@@ -66,8 +67,37 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.recipeForm)
+    // console.log(this.recipeForm.get('ingredients'))
+
+    let formRecipe = new Recipe(
+      this.recipeForm.get('name').value,
+      this.recipeForm.get('description').value,
+      this.recipeForm.get('imagePath').value,
+      (this.recipeForm.get('ingredients') as FormArray).value.map(
+        (ingredient)=>{
+          return new Ingredient(ingredient['ingredientName'],ingredient['amount'])
+        }
+      )
+    )
+
+    //  console.log(formRecipe);
+
+    if(this.editMode){
+      this.recipeService.updateRecipe(formRecipe,this.id)
+    }
+    else{
+      this.recipeService.addNewRecipe(formRecipe)
+    }
+    this.router.navigate(['../'],{relativeTo: this.route})
+
   }
 
+  removeIngredient(index: number){
+    (this.recipeForm.get('ingredients') as FormArray).removeAt(index);
+  }
+
+  onCancelForm(){
+    this.router.navigate(['../'],{relativeTo: this.route})
+  }
 
 }
